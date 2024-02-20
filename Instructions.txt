@@ -1,0 +1,33 @@
+1. First clone the repository in the local machine
+2. Run "docker build -t receipt-processor-challenge ." to build the docker image for the project
+3. Run "docker images" to check if the image is created or facing any issues
+4. Run "docker run -p 5000:5000 receipt-processor-challenge" to run the docker image and you will be seeing a localhost url and project
+5. Download postman and test the api:
+i. POST: http://127.0.0.1:5000/receipts/process
+Body->raw->json
+{
+  "retailer": "Target",
+  "purchaseDate": "2022-01-01",
+  "purchaseTime": "13:01",
+  "items": [
+    {
+      "shortDescription": "Mountain Dew 12PK",
+      "price": "6.49"
+    },{
+      "shortDescription": "Emils Cheese Pizza",
+      "price": "12.25"
+    },{
+      "shortDescription": "Knorr Creamy Chicken",
+      "price": "1.26"
+    },{
+      "shortDescription": "Doritos Nacho Cheese",
+      "price": "3.35"
+    },{
+      "shortDescription": "   Klarbrunn 12-PK 12 FL OZ  ",
+      "price": "12.00"
+    }
+  ],
+  "total": "35.35"
+}
+
+ii. GET: localhost:5000/receipts/17461087-6d10-4562-af95-c12333fc0bf6/points
